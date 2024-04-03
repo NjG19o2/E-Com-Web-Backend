@@ -88,6 +88,7 @@ router.post('/login',[
 router.post('/getuser',fetchuser,async(req,res)=>{ 
     try {
         userId=req.user.id;
+        console.log(`User ID: ${userId}`); // Log the user ID to verify it's being set
         const user=await User.findById(userId).select("-password")
         res.send(user)
 
